@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.bramblejack.eggcelent.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap":  "eggcelent.refmap.json",
+  "plugin":  "com.bramblejack.eggcelent.mixin.EggcelentMixinPlugin",
+  "client": [
+  ],
+  "mixins": [
+    "nestegg.IncubateGoalMysticHatchMixin",
+    "nestegg.IncubateGoalVBHatchMixin",
+    "nestegg.IncubateGoalMixin",
+    "vanillabackport.ChickenEggDropMixin",
+    "vanillabackport.ThrownEggVariantMixin",
+    "vanillabackport.VariantEggItemMixin",
+    "incubation.LayEggInNestGoalMixin",
+    "mysticsbiomes.RainbowChickenNestMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}
