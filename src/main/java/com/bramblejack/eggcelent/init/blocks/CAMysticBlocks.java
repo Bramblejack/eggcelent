@@ -5,6 +5,7 @@ import com.mysticsbiomes.init.MysticItems;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.incubation.common.block.BirdNestBlock;
 import com.teamabnormals.incubation.common.block.EmptyNestBlock;
+import com.teamabnormals.incubation.core.Incubation;
 import com.teamabnormals.incubation.core.registry.IncubationBlocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -17,7 +18,7 @@ public class CAMysticBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, EggcelentMod.MODID);
     public static final BlockSubRegistryHelper HELPER =
-            EggcelentMod.EGGCELENT_HELPER.getBlockSubHelper();
+            Incubation.REGISTRY_HELPER.getBlockSubHelper();
 
     public static RegistryObject<Block> HAY_YELLOW_CHICKEN_NEST;
     public static RegistryObject<Block> HAY_PINK_CHICKEN_NEST;

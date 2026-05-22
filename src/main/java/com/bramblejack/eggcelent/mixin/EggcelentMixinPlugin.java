@@ -41,6 +41,9 @@ public class EggcelentMixinPlugin implements IMixinConfigPlugin {
         if (mixinClassName.endsWith("RainbowChickenNestMixin")) {
             return isLoaded("mysticsbiomes") && isLoaded("incubation");
         }
+        if (mixinClassName.endsWith("RainbowChickenIncubateGoalMixin")) {
+            return isLoaded("mysticsbiomes") && isLoaded("incubation") && isLoaded("nest_egg");
+        }
         if (mixinClassName.endsWith("VariantEggItemMixin")
                 || mixinClassName.endsWith("ThrownEggVariantMixin")
                 || mixinClassName.endsWith("ChickenEggDropMixin")) {

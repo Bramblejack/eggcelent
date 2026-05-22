@@ -15,7 +15,8 @@
     "vanillabackport.ThrownEggVariantMixin",
     "vanillabackport.VariantEggItemMixin",
     "incubation.LayEggInNestGoalMixin",
-    "mysticsbiomes.RainbowChickenNestMixin"
+    "mysticsbiomes.RainbowChickenNestMixin",
+    "mysticsbiomes.RainbowChickenIncubateGoalMixin"
   ],
   "injectors": {
     "defaultRequire": 0

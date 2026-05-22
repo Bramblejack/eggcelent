@@ -1,6 +1,5 @@
 package com.bramblejack.eggcelent.mixin.mysticsbiomes;
 
-import com.davigj.nest_egg.common.entity.ai.goal.IncubateGoal;
 import com.mysticsbiomes.common.entity.RainbowChicken;
 import com.mysticsbiomes.init.MysticItems;
 import com.teamabnormals.blueprint.core.api.EggLayer;
@@ -25,7 +24,6 @@ public abstract class RainbowChickenNestMixin extends net.minecraft.world.entity
 
     @Inject(method = "registerGoals", at = @At("TAIL"))
     private void eggcelent$addLayEggInNestGoal(CallbackInfo ci) {
-        this.goalSelector.addGoal(2, new IncubateGoal((EggLayer) this, 0.25));
         this.goalSelector.addGoal(3, new LayEggInNestGoal((RainbowChicken) (Object) this, 0.25));
     }
 
