@@ -1,10 +1,10 @@
 package com.bramblejack.eggcelent.mixin.vanillabackport;
 
-import com.blackgear.vanillabackport.common.api.variant.VariantDataHolder;
-import com.blackgear.vanillabackport.common.api.variant.VariantUtils;
-import com.blackgear.vanillabackport.common.level.entities.animal.ChickenVariant;
-import com.blackgear.vanillabackport.common.registries.ModItems;
-import com.blackgear.vanillabackport.core.registries.ModBuiltinRegistries;
+import com.blackgear.vanillabackport.common.api.modules.mob_variant.VariantDataHolder;
+import com.blackgear.vanillabackport.common.api.modules.mob_variant.VariantUtils;
+import com.blackgear.vanillabackport.common.level.entities.mob.animal.chicken.ChickenVariant;
+import com.blackgear.vanillabackport.common.level.entities.mob.animal.chicken.ChickenVariants;
+import com.blackgear.vanillabackport.common.registries.items.ModItems;
 import com.bramblejack.eggcelent.registry.ChickenVariantClassifier;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -44,7 +44,7 @@ public abstract class ChickenEggDropMixin {
                 ((VariantDataHolder<ChickenVariant>) (Object) this).getVariantData();
 
         if (variantOpt.isPresent()) {
-            String variantIdStr = VariantUtils.getID(ModBuiltinRegistries.CHICKEN_VARIANTS, variantOpt.get());
+            String variantIdStr = VariantUtils.getID(ChickenVariants.REGISTRIES, variantOpt.get());
             ResourceLocation variantId = ResourceLocation.tryParse(variantIdStr);
 
             if (variantId != null) {

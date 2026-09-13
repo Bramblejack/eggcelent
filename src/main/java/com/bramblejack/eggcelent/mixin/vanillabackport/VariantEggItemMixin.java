@@ -1,14 +1,13 @@
 package com.bramblejack.eggcelent.mixin.vanillabackport;
 
 import com.blackgear.platform.core.BuiltInCoreRegistry;
-import com.blackgear.vanillabackport.common.level.entities.animal.ChickenVariant;
-import com.blackgear.vanillabackport.common.level.entities.animal.ChickenVariants;
+import com.blackgear.platform.core.api.RegistryKey;
+import com.blackgear.vanillabackport.common.level.entities.mob.animal.chicken.ChickenVariant;
+import com.blackgear.vanillabackport.common.level.entities.mob.animal.chicken.ChickenVariants;
 import com.blackgear.vanillabackport.common.level.items.VariantEggItem;
-import com.blackgear.vanillabackport.core.registries.ModBuiltinRegistries;
 import com.bramblejack.eggcelent.registry.ChickenVariantClassifier;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
@@ -28,10 +27,10 @@ public abstract class VariantEggItemMixin {
     @WrapOperation(
         method = "use",
         at = @At(value = "INVOKE",
-                 target = "Lcom/blackgear/vanillabackport/common/api/variant/VariantUtils;getDefault(Lcom/blackgear/platform/core/BuiltInCoreRegistry;Lnet/minecraft/resources/ResourceKey;)Ljava/lang/Object;")
+                 target = "Lcom/blackgear/vanillabackport/common/api/modules/mob_variant/VariantUtils;getDefault(Lcom/blackgear/platform/core/BuiltInCoreRegistry;Lcom/blackgear/platform/core/api/RegistryKey;)Ljava/lang/Object;")
     )
     private Object eggcelent$wrapGetDefault(BuiltInCoreRegistry<ChickenVariant> registry,
-                                                   ResourceKey<ChickenVariant> defaultKey,
+                                                   RegistryKey<ChickenVariant> defaultKey,
                                                    Operation<ChickenVariant> original,
                                                    Level level, Player player, InteractionHand hand) {
         ChickenVariant defaultVariant = original.call(registry, defaultKey);
@@ -47,7 +46,7 @@ public abstract class VariantEggItemMixin {
                 : ChickenVariantClassifier.randomWarmVariant(level.random);
 
         return randomId
-                .map(id -> ModBuiltinRegistries.CHICKEN_VARIANTS.get(id))
+                .map(id -> ChickenVariants.REGISTRIES.get(id))
                 .filter(v -> v != null)
                 .orElse(defaultVariant);
     }

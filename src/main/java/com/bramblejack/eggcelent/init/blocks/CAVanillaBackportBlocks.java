@@ -1,6 +1,6 @@
 package com.bramblejack.eggcelent.init.blocks;
 
-import com.blackgear.vanillabackport.common.registries.ModItems;
+import com.blackgear.vanillabackport.common.registries.items.ModItems;
 
 import com.bramblejack.eggcelent.EggcelentMod;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;

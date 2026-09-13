@@ -1,10 +1,10 @@
 package com.bramblejack.eggcelent.registry;
 
-import com.blackgear.vanillabackport.common.api.variant.spawn.SpawnCondition;
-import com.blackgear.vanillabackport.common.api.variant.spawn.check.BiomeCheck;
-import com.blackgear.vanillabackport.common.api.variant.spawn.check.raw.RawBiomeCheck;
-import com.blackgear.vanillabackport.common.level.entities.animal.ChickenVariant;
-import com.blackgear.vanillabackport.core.registries.ModBuiltinRegistries;
+import com.blackgear.vanillabackport.common.api.modules.mob_variant.spawn.SpawnCondition;
+import com.blackgear.vanillabackport.common.api.modules.mob_variant.spawn.check.BiomeCheck;
+import com.blackgear.vanillabackport.common.api.modules.mob_variant.spawn.check.raw.RawBiomeCheck;
+import com.blackgear.vanillabackport.common.level.entities.mob.animal.chicken.ChickenVariant;
+import com.blackgear.vanillabackport.common.level.entities.mob.animal.chicken.ChickenVariants;
 import net.minecraft.core.HolderSet;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -81,12 +81,12 @@ public final class ChickenVariantClassifier {
     // -------------------------------------------------------------------------
 
     public static boolean isWarmVariant(ResourceLocation variantId) {
-        ChickenVariant variant = ModBuiltinRegistries.CHICKEN_VARIANTS.get(variantId);
+        ChickenVariant variant = ChickenVariants.REGISTRIES.get(variantId);
         return variant != null && classify(variant) == Group.WARM;
     }
 
     public static boolean isColdVariant(ResourceLocation variantId) {
-        ChickenVariant variant = ModBuiltinRegistries.CHICKEN_VARIANTS.get(variantId);
+        ChickenVariant variant = ChickenVariants.REGISTRIES.get(variantId);
         return variant != null && classify(variant) == Group.COLD;
     }
 
@@ -108,7 +108,7 @@ public final class ChickenVariantClassifier {
 
     private static Optional<ResourceLocation> randomFromGroup(RandomSource random, Group group) {
         List<ResourceLocation> pool = new ArrayList<>();
-        ModBuiltinRegistries.CHICKEN_VARIANTS.entries().forEach((id, variant) -> {
+        ChickenVariants.REGISTRIES.entries().forEach((id, variant) -> {
             if (classify(variant) == group) {
                 pool.add(id);
             }

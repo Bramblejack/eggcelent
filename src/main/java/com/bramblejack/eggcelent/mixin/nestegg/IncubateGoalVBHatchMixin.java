@@ -1,9 +1,9 @@
 package com.bramblejack.eggcelent.mixin.nestegg;
 
-import com.blackgear.vanillabackport.common.api.variant.VariantDataHolder;
-import com.blackgear.vanillabackport.common.api.variant.VariantUtils;
-import com.blackgear.vanillabackport.common.level.entities.animal.ChickenVariant;
-import com.blackgear.vanillabackport.core.registries.ModBuiltinRegistries;
+import com.blackgear.vanillabackport.common.api.modules.mob_variant.VariantDataHolder;
+import com.blackgear.vanillabackport.common.api.modules.mob_variant.VariantUtils;
+import com.blackgear.vanillabackport.common.level.entities.mob.animal.chicken.ChickenVariant;
+import com.blackgear.vanillabackport.common.level.entities.mob.animal.chicken.ChickenVariants;
 import com.bramblejack.eggcelent.registry.ChickenVariantClassifier;
 import com.davigj.nest_egg.common.entity.ai.goal.IncubateGoal;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -38,7 +38,7 @@ public abstract class IncubateGoalVBHatchMixin {
             Optional<ChickenVariant> parentVariant = parentHolder.getVariantData();
 
             if (parentVariant.isPresent()) {
-                String variantIdStr = VariantUtils.getID(ModBuiltinRegistries.CHICKEN_VARIANTS, parentVariant.get());
+                String variantIdStr = VariantUtils.getID(ChickenVariants.REGISTRIES, parentVariant.get());
                 ResourceLocation variantId = ResourceLocation.tryParse(variantIdStr);
 
                 if (variantId != null) {
@@ -67,7 +67,7 @@ public abstract class IncubateGoalVBHatchMixin {
         candidates.forEach(chick -> {
             @SuppressWarnings("unchecked")
             VariantDataHolder<ChickenVariant> chickHolder = (VariantDataHolder<ChickenVariant>) chick;
-            Optional<ChickenVariant> resolved = VariantUtils.getOrDefault(ModBuiltinRegistries.CHICKEN_VARIANTS, variantId.toString());
+            Optional<ChickenVariant> resolved = VariantUtils.getOrDefault(ChickenVariants.REGISTRIES, variantId.toString());
             resolved.ifPresent(chickHolder::setVariantData);
         });
     }

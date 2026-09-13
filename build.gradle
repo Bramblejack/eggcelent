@@ -132,11 +132,11 @@ dependencies {
     compileOnly fg.deobf("maven.modrinth:incubation:4.0.4")
     runtimeOnly fg.deobf("maven.modrinth:incubation:4.0.4")
 
-    compileOnly fg.deobf("maven.modrinth:vanillabackport:lXAo1yJs")
-    runtimeOnly fg.deobf("maven.modrinth:vanillabackport:lXAo1yJs")
+    compileOnly fg.deobf("vanillabackport:VanillaBackport-forge:1.20.1-1.2.0.2636.3")
+    runtimeOnly fg.deobf("vanillabackport:VanillaBackport-forge:1.20.1-1.2.0.2636.3")
 
-    compileOnly fg.deobf("maven.modrinth:platform:XCJNVCRh")
-    runtimeOnly fg.deobf("maven.modrinth:platform:XCJNVCRh")
+    compileOnly fg.deobf("platform:Platform-forge:1.20.1-1.4.0.2636.1")
+    runtimeOnly fg.deobf("platform:Platform-forge:1.20.1-1.4.0.2636.1")
 
     implementation fg.deobf("curse.maven:configured-457570:5180900")
 
