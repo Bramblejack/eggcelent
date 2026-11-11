@@ -4,7 +4,7 @@ license="${mod_license}"
 
 [[mods]]
 modId="eggcelent"
-version="1.2.0-beta"
+version="1.2.1"
 displayName="Eggcelent"
 description="Extra compatibility for your egg-related needs"
 authors="Bramblejack"
